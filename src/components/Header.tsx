@@ -1,15 +1,20 @@
+import { useBranding } from '../hooks/useBranding';
 import { ExerciseInfo } from './ExerciseInfo';
 
 export function Header() {
-  // TODO: Use the useBranding hook (from hooks/useBranding.ts) to get
-  // the current tenant's logoUrl and productName.
-  // Then render the logo as a dynamic <img> element instead of static text.
+  const { logoUrl, productName } = useBranding();
+
+  // TODO: Replace the static "Product Name" text below with a dynamic <img>
+  // element using logoUrl and productName from the useBranding hook above.
+  // The hook is already imported and called for you.
+  void logoUrl; // remove once implemented
+  void productName; // remove once implemented
 
   return (
     <header className="bg-canvas border-b-2 border-contrast-low p-fluid-md">
       <div className="flex items-center justify-between">
         <span className="text-primary font-bold text-xl">Product Name</span>
-        <div className="max-w-md">
+        <div className="max-w-2xl">
           <ExerciseInfo title="White-Label Branding (Tasks 1, 3 & 5)">
             <p>
               This static text should become a dynamic <code>&lt;img&gt;</code> driven by{' '}

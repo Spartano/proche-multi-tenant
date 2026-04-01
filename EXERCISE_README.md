@@ -83,7 +83,7 @@ Replace the placeholder `return true` in `hasAccess()` with a real call to `chec
 ### Task 5: Component Wiring (~15 min)
 Three components need your logic:
 
-**`src/components/Header.tsx`** -- Use `useBranding()` to render the tenant's logo dynamically (as an `<img>` element) instead of the static "Product Name" text.
+**`src/components/Header.tsx`** -- The `useBranding()` hook is already imported and called. Replace the static "Product Name" text with a dynamic `<img>` element using `logoUrl` and `productName`.
 
 **`src/components/Navigation.tsx`** -- Use `useAuthorization()` to filter `NAVIGATION_ITEMS` so only accessible features appear in the sidebar.
 
