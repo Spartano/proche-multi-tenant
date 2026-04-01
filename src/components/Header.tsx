@@ -1,5 +1,5 @@
-import { useBranding } from '../hooks/useBranding';
-import { ExerciseInfo } from './ExerciseInfo';
+import { useBranding } from "../hooks/useBranding";
+import { ExerciseInfo } from "./ExerciseInfo";
 
 export function Header() {
   const { logoUrl, productName } = useBranding();
@@ -17,15 +17,17 @@ export function Header() {
         <div className="max-w-2xl">
           <ExerciseInfo title="White-Label Branding (Tasks 1, 3 & 5)">
             <p>
-              This static text should become a dynamic <code>&lt;img&gt;</code> driven by{' '}
-              <strong>useBranding</strong>. The browser favicon and page title should also
-              change when tenants switch. Try switching tenants — nothing changes yet.
+              This static text should become a dynamic <code>&lt;img&gt;</code>{" "}
+              driven by <strong>useBranding</strong>. The browser favicon and
+              page title should also change when tenants switch. Try switching
+              tenants — nothing changes yet.
             </p>
             <p className="mt-1">
-              <strong>Task 1:</strong> Implement <code>updateFavicon</code> and{' '}
-              <code>updateDocumentTitle</code> in <code>branding.ts</code>.{' '}
-              <strong>Task 3:</strong> Wire them into <code>useBranding</code> via useEffect.{' '}
-              <strong>Task 5:</strong> Use the hook here to render the tenant logo.
+              <strong>Task 1:</strong> Implement <code>updateFavicon</code> and{" "}
+              <code>updateDocumentTitle</code> in <code>branding.ts</code>.{" "}
+              <strong>Task 3:</strong> Wire them into <code>useBranding</code>{" "}
+              via useEffect. <strong>Task 5:</strong> Use the hook here to
+              render the tenant logo.
             </p>
           </ExerciseInfo>
         </div>
