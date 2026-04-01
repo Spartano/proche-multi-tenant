@@ -73,7 +73,7 @@ You will need a tier comparison helper (Tier 2 >= Tier 1). Look up rules from `F
 ### Task 3: Branding Hook (~5 min)
 **File:** `src/hooks/useBranding.ts`
 
-Add a `useEffect` that calls `updateFavicon()` and `updateDocumentTitle()` whenever the session's tenant changes. The utility imports and return shape are already in place.
+Add the necessary imports (`useEffect` from React, `updateFavicon` / `updateDocumentTitle` from `../utils/branding`) and a `useEffect` that calls both utilities whenever the session's tenant changes. The return shape is already in place.
 
 ### Task 4: Authorization Hook (~5 min)
 **File:** `src/hooks/useAuthorization.ts`
@@ -87,7 +87,7 @@ Three components need your logic:
 
 **`src/components/Navigation.tsx`** -- Use `useAuthorization()` to filter `NAVIGATION_ITEMS` so only accessible features appear in the sidebar.
 
-**`src/components/ProtectedRoute.tsx`** -- Use `useAuthorization()` to check access. If denied, redirect to `/access-denied` using React Router's `<Navigate>`. All necessary imports are already present.
+**`src/components/ProtectedRoute.tsx`** -- Import `useAuthorization` and React Router's `<Navigate>`, then use them to check access. If denied, redirect to `/access-denied`.
 
 ### Task 6: Route Guarding (~10 min)
 **File:** `src/App.tsx`

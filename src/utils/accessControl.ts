@@ -13,6 +13,7 @@ export function checkFeatureAccess({ feature, role, tier }: AccessCheckParams): 
   //   2. The user's tier meets or exceeds the feature's requiredTier
   // If no rule is found for the feature, deny access.
   // You will need a helper to compare tier levels (e.g. Tier 2 >= Tier 1).
+  // remove these void statements once you use the parameters
   void feature;
   void role;
   void tier;

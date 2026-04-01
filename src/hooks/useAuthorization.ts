@@ -8,7 +8,7 @@ export function useAuthorization() {
     // TODO: Import and use checkFeatureAccess from '../utils/accessControl'
     // to determine whether the current user's role and subscription tier
     // grant access to the given feature. Return false if there is no session.
-    void feature;
+    void feature; // remove once implemented
     return true;
   };
 
