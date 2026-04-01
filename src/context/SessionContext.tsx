@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, type ReactNode } from 'react';
+import { createContext, useState, type ReactNode } from 'react';
 import type { SessionState, SubscriptionTier } from '../types';
 import { TENANTS, MOCK_USERS } from '../data/mockData';
 
@@ -11,20 +11,17 @@ interface SessionContextValue {
 
 export const SessionContext = createContext<SessionContextValue | null>(null);
 
+const defaultTenant = TENANTS[0];
+const defaultUser = MOCK_USERS[defaultTenant.tenantId][0];
+
+const INITIAL_SESSION: SessionState = {
+  tenant: defaultTenant,
+  user: defaultUser,
+  tier: 'Tier 1',
+};
+
 export function SessionProvider({ children }: { children: ReactNode }) {
-  const [session, setSession] = useState<SessionState | null>(null);
-
-  useEffect(() => {
-    const defaultTenant = TENANTS[0];
-    const defaultUser = MOCK_USERS[defaultTenant.tenantId][0];
-    const defaultTier: SubscriptionTier = 'Tier 1';
-
-    setSession({
-      tenant: defaultTenant,
-      user: defaultUser,
-      tier: defaultTier,
-    });
-  }, []);
+  const [session, setSession] = useState<SessionState | null>(INITIAL_SESSION);
 
   const setTenant = (tenantId: string) => {
     const tenant = TENANTS.find((t) => t.tenantId === tenantId);

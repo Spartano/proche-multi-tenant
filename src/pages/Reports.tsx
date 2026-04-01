@@ -1,5 +1,6 @@
 import { PText, PButton, PIcon } from '@porsche-design-system/components-react';
 import { PageLayout } from '../components/PageLayout';
+import { ExerciseInfo } from '../components/ExerciseInfo';
 
 const mockReports = [
   { id: 'RPT-001', name: 'Monthly Performance Report', generated: '2024-03-15', type: 'Performance' },
@@ -11,9 +12,21 @@ export function Reports() {
   return (
     <PageLayout
       title="Reports"
-      description="Generate and view analytical reports (Tier 2 feature)"
+      description="Generate and view analytical reports"
     >
-      <div className="mb-fluid-md">
+      <ExerciseInfo title="Reports — Access Rules">
+        <p>
+          <strong>Roles:</strong> Admin, Analyst &nbsp;|&nbsp;
+          <strong>Required Tier:</strong> Tier 2 only
+        </p>
+        <p>
+          This is a <strong>Tier 2 feature</strong>. Viewers cannot access it regardless of tier.
+          On Tier 1, even Admins and Analysts should not see it in the nav, and directly
+          navigating to <code>/reports</code> should redirect to Access Denied.
+        </p>
+      </ExerciseInfo>
+
+      <div className="mb-fluid-md mt-fluid-md">
         <PButton icon="add">Generate New Report</PButton>
       </div>
 

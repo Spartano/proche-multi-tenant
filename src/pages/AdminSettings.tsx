@@ -1,6 +1,7 @@
 import { PText, PFieldset, PTextFieldWrapper, PButton } from '@porsche-design-system/components-react';
 import { PageLayout } from '../components/PageLayout';
 import { useSession } from '../hooks/useSession';
+import { ExerciseInfo } from '../components/ExerciseInfo';
 
 export function AdminSettings() {
   const { session } = useSession();
@@ -8,9 +9,21 @@ export function AdminSettings() {
   return (
     <PageLayout
       title="Admin Settings"
-      description="Manage system configuration and settings (Admin only)"
+      description="Manage system configuration and settings"
     >
-      <div className="max-w-3xl">
+      <ExerciseInfo title="Admin Settings — Access Rules">
+        <p>
+          <strong>Roles:</strong> Admin only &nbsp;|&nbsp;
+          <strong>Required Tier:</strong> Tier 1+
+        </p>
+        <p>
+          This page is <strong>role-restricted</strong> rather than tier-restricted.
+          Only Admins can see it, but it should be available on any tier. This tests that the
+          access logic handles the case where the role gate is strict but the tier gate is permissive.
+        </p>
+      </ExerciseInfo>
+
+      <div className="max-w-3xl mt-fluid-md">
         <div className="bg-surface p-fluid-md rounded-md border-2 border-contrast-low mb-fluid-md">
           <PFieldset label="Tenant Configuration">
             <div className="space-y-fluid-sm">

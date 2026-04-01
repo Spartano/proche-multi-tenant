@@ -1,5 +1,6 @@
 import { PText, PTag } from '@porsche-design-system/components-react';
 import { PageLayout } from '../components/PageLayout';
+import { ExerciseInfo } from '../components/ExerciseInfo';
 
 const mockLogs = [
   {
@@ -43,9 +44,21 @@ export function AuditLogs() {
   return (
     <PageLayout
       title="Audit Logs"
-      description="Track system activity and user actions (Tier 2, Admin only)"
+      description="Track system activity and user actions"
     >
-      <div className="bg-surface rounded-md border-2 border-contrast-low overflow-hidden">
+      <ExerciseInfo title="Audit Logs — Access Rules">
+        <p>
+          <strong>Roles:</strong> Admin only &nbsp;|&nbsp;
+          <strong>Required Tier:</strong> Tier 2 only
+        </p>
+        <p>
+          The <strong>most restrictive page</strong> in the app. Requires both Admin role AND
+          Tier 2 subscription. Best page to verify that the dual-gate logic (role + tier)
+          correctly denies access when either condition fails.
+        </p>
+      </ExerciseInfo>
+
+      <div className="bg-surface rounded-md border-2 border-contrast-low overflow-hidden mt-fluid-md">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="bg-canvas border-b-2 border-contrast-low">
