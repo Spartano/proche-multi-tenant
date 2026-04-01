@@ -4,7 +4,7 @@ import { NAVIGATION_ITEMS } from "../data/mockData";
 import { ExerciseInfo } from "./ExerciseInfo";
 
 export function Navigation() {
-  // TODO: Import useAuthorization from '../hooks/useAuthorization' and use
+  // TODO (Task 5): Import useAuthorization from '../hooks/useAuthorization' and use
   // its hasAccess() method to filter NAVIGATION_ITEMS so that only features
   // the current user can access appear in the nav.
   const accessibleItems = NAVIGATION_ITEMS;

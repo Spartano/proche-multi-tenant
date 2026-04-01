@@ -3,7 +3,7 @@ import { SessionProvider } from './context/SessionContext';
 import { Header } from './components/Header';
 import { SessionSelector } from './components/SessionSelector';
 import { Navigation } from './components/Navigation';
-// TODO: Import ProtectedRoute and wrap each route that needs guarding
+// TODO (Task 6): Import ProtectedRoute and wrap each route that needs guarding
 // import { ProtectedRoute } from './components/ProtectedRoute';
 import { Dashboard } from './pages/Dashboard';
 import { Cases } from './pages/Cases';
@@ -28,7 +28,7 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
-                {/* TODO: Wrap each route below with <ProtectedRoute feature="...">
+                {/* TODO (Task 6): Wrap each route below with <ProtectedRoute feature="...">
                     so that unauthorized users are redirected to /access-denied.
                     The feature keys are: dashboard, cases, reports, rules,
                     admin-settings, audit-logs */}

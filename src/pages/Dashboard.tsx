@@ -11,16 +11,16 @@ export function Dashboard() {
       title="Dashboard"
       description="Overview of your key metrics and activities"
     >
-      <ExerciseInfo title="Dashboard — Access Rules (Tasks 2, 4, 5 & 6)">
+      <ExerciseInfo title="Dashboard — Access Rules (Tasks 1, 2, 4, 5 & 6)">
         <p>
           <strong>Roles:</strong> Admin, Analyst, Viewer &nbsp;|&nbsp;
           <strong>Required Tier:</strong> Tier 1+
         </p>
         <p>
           This page should be visible to all roles on any tier. It serves as the default
-          landing page. Once access control (Task 2), the authorization hook (Task 4),
-          nav filtering (Task 5), and route guards (Task 6) are implemented, this should
-          always remain accessible.
+          landing page. Once the tier helper (Task 1), access control (Task 2), the authorization
+          hook (Task 4), nav filtering (Task 5), and route guards (Task 6) are implemented,
+          this should always remain accessible.
         </p>
       </ExerciseInfo>
 

@@ -5,7 +5,7 @@ export function useAuthorization() {
   const { session } = useSession();
 
   const hasAccess = (feature: FeatureKey): boolean => {
-    // TODO: Import and use checkFeatureAccess from '../utils/accessControl'
+    // TODO (Task 4): Import and use checkFeatureAccess from '../utils/accessControl'
     // to determine whether the current user's role and subscription tier
     // grant access to the given feature. Return false if there is no session.
     void feature; // remove once implemented
