@@ -36,12 +36,15 @@ export function Navigation() {
       </ul>
 
       <div className="mt-fluid-md min-w-0">
-        <ExerciseInfo title="Navigation Filtering (Task 5)">
+        <ExerciseInfo title="Filtered Navigation (Task 5)">
           <p className="break-words">
-            All {NAVIGATION_ITEMS.length} items are shown regardless of role/tier.
-            After implementing <code className="break-all">useAuthorization</code>, filter
-            this list so only accessible features appear. Switching role or tier
-            should update the nav instantly.
+            Showing <strong>{NAVIGATION_ITEMS.length}</strong> of {NAVIGATION_ITEMS.length} items
+            (no filtering applied).
+          </p>
+          <p className="break-words mt-1">
+            The candidate must use <code className="break-all">useAuthorization</code> to
+            filter <code className="break-all">NAVIGATION_ITEMS</code> so that inaccessible
+            features never appear.
           </p>
         </ExerciseInfo>
       </div>
