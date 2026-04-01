@@ -54,26 +54,26 @@ This matrix is already defined as `FEATURE_ACCESS_RULES` in `src/data/mockData.t
 
 Work through these in order. Each builds on the previous one.
 
-### Task 1: Branding Utilities (~5 min)
-**File:** `src/utils/branding.ts`
+### Task 1: Tier Comparison Helper (~5 min)
+**File:** `src/utils/accessControl.ts`
 
-Implement two functions:
-- `updateFavicon(faviconUrl)` -- dynamically update the browser's favicon
-- `updateDocumentTitle(productName)` -- update the document's `<title>` tag
+Complete the `TIER_LEVELS` map and the `meetsRequiredTier(userTier, requiredTier)` function. Both are already stubbed. `TIER_LEVELS` should map each `SubscriptionTier` to a numeric level (e.g. `'Tier 1': 1`, `'Tier 2': 2`). `meetsRequiredTier` should compare these levels and return `true` when the user's tier is >= the required tier.
+
+This helper is used by Task 2.
 
 ### Task 2: Access Control Logic (~10 min)
 **File:** `src/utils/accessControl.ts`
 
 Implement `checkFeatureAccess({ feature, role, tier })` that returns `true` only when:
 1. The user's role is in the feature's `allowedRoles`
-2. The user's tier meets or exceeds the feature's `requiredTier`
+2. `meetsRequiredTier(tier, rule.requiredTier)` returns `true`
 
-You will need a tier comparison helper (Tier 2 >= Tier 1). Look up rules from `FEATURE_ACCESS_RULES`.
+Import `FEATURE_ACCESS_RULES` from `../data/mockData` and look up the rule for the given feature. If no rule is found, deny access.
 
 ### Task 3: Branding Hook (~5 min)
 **File:** `src/hooks/useBranding.ts`
 
-Add the necessary imports (`useEffect` from React, `updateFavicon` / `updateDocumentTitle` from `../utils/branding`) and a `useEffect` that calls both utilities whenever the session's tenant changes. The return shape is already in place.
+Add the necessary imports (`useEffect` from React, `updateFavicon` / `updateDocumentTitle` from `../utils/branding` -- both are already implemented) and a `useEffect` that calls both utilities whenever the session's tenant changes. The return shape is already in place.
 
 ### Task 4: Authorization Hook (~5 min)
 **File:** `src/hooks/useAuthorization.ts`
@@ -83,7 +83,7 @@ Replace the placeholder `return true` in `hasAccess()` with a real call to `chec
 ### Task 5: Component Wiring (~15 min)
 Three components need your logic:
 
-**`src/components/Header.tsx`** -- Use `useBranding()` to render the tenant's logo dynamically (as an `<img>` element) instead of the static "Product Name" text.
+**`src/components/Header.tsx`** -- The `useBranding()` hook is already imported and called. Replace the static "Product Name" text with a dynamic `<img>` element using `logoUrl` and `productName`.
 
 **`src/components/Navigation.tsx`** -- Use `useAuthorization()` to filter `NAVIGATION_ITEMS` so only accessible features appear in the sidebar.
 
@@ -150,8 +150,8 @@ src/
 ├── types/
 │   └── index.ts               (provided)
 ├── utils/
-│   ├── accessControl.ts      ← TODO: implement logic
-│   └── branding.ts           ← TODO: implement logic
+│   ├── accessControl.ts      ← TODO: tier helper + access logic
+│   └── branding.ts            (provided)
 ├── App.tsx                    ← TODO: add route guards
 └── main.tsx                   (provided)
 ```
