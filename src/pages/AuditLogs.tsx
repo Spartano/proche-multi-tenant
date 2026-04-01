@@ -46,7 +46,7 @@ export function AuditLogs() {
       title="Audit Logs"
       description="Track system activity and user actions"
     >
-      <ExerciseInfo title="Audit Logs — Access Rules">
+      <ExerciseInfo title="Audit Logs — Access Rules (Tasks 5 & 6)">
         <p>
           <strong>Roles:</strong> Admin only &nbsp;|&nbsp;
           <strong>Required Tier:</strong> Tier 2 only

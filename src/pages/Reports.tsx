@@ -14,15 +14,15 @@ export function Reports() {
       title="Reports"
       description="Generate and view analytical reports"
     >
-      <ExerciseInfo title="Reports — Access Rules">
+      <ExerciseInfo title="Reports — Access Rules (Tasks 5 & 6)">
         <p>
           <strong>Roles:</strong> Admin, Analyst &nbsp;|&nbsp;
           <strong>Required Tier:</strong> Tier 2 only
         </p>
         <p>
           This is a <strong>Tier 2 feature</strong>. Viewers cannot access it regardless of tier.
-          On Tier 1, even Admins and Analysts should not see it in the nav, and directly
-          navigating to <code>/reports</code> should redirect to Access Denied.
+          On Tier 1, even Admins and Analysts should not see it in the nav (Task 5), and directly
+          navigating to <code>/reports</code> should redirect to Access Denied (Task 6).
         </p>
       </ExerciseInfo>
 

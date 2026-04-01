@@ -11,7 +11,7 @@ export function AdminSettings() {
       title="Admin Settings"
       description="Manage system configuration and settings"
     >
-      <ExerciseInfo title="Admin Settings — Access Rules">
+      <ExerciseInfo title="Admin Settings — Access Rules (Tasks 5 & 6)">
         <p>
           <strong>Roles:</strong> Admin only &nbsp;|&nbsp;
           <strong>Required Tier:</strong> Tier 1+

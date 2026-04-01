@@ -29,14 +29,15 @@ export function AccessDenied() {
         />
 
         <div className="mb-fluid-md text-left">
-          <ExerciseInfo title="Access Denied — Route Guard in Action">
+          <ExerciseInfo title="Access Denied — Route Guard (Tasks 5 & 6)">
             <p>
-              This page is shown when <strong>ProtectedRoute</strong> detects that the
+              This page is shown when <strong>ProtectedRoute</strong> (Task 5) detects that the
               current role/tier combination doesn't satisfy the feature's access rule and
               redirects here via <code>&lt;Navigate to="/access-denied"&gt;</code>.
             </p>
             <p className="mt-1">
-              <strong>To test:</strong> Try typing <code>/reports</code> or <code>/admin</code> directly
+              <strong>To test:</strong> After implementing Tasks 5 & 6, try typing{' '}
+              <code>/reports</code> or <code>/admin</code> directly
               in the URL bar with a Viewer on Tier 1. The nav should hide these links, but direct URL
               access must also be blocked — that's what this page proves.
             </p>

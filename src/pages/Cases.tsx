@@ -15,7 +15,7 @@ export function Cases() {
       title="Cases"
       description="Manage and track all support cases"
     >
-      <ExerciseInfo title="Cases — Access Rules">
+      <ExerciseInfo title="Cases — Access Rules (Tasks 5 & 6)">
         <p>
           <strong>Roles:</strong> Admin, Analyst, Viewer &nbsp;|&nbsp;
           <strong>Required Tier:</strong> Tier 1+

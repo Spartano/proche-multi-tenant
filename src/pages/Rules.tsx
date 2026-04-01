@@ -15,7 +15,7 @@ export function Rules() {
       title="Rules"
       description="Configure automation rules and workflows"
     >
-      <ExerciseInfo title="Rules — Access Rules">
+      <ExerciseInfo title="Rules — Access Rules (Tasks 5 & 6)">
         <p>
           <strong>Roles:</strong> Admin, Analyst &nbsp;|&nbsp;
           <strong>Required Tier:</strong> Tier 2 only
