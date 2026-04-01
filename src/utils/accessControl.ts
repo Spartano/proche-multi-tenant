@@ -1,4 +1,5 @@
 import type { FeatureKey, Role, SubscriptionTier } from '../types';
+import { FEATURE_ACCESS_RULES } from '../data/mockData';
 
 interface AccessCheckParams {
   feature: FeatureKey;
@@ -6,16 +7,17 @@ interface AccessCheckParams {
   tier: SubscriptionTier;
 }
 
+const TIER_LEVELS: Record<SubscriptionTier, number> = {
+  'Tier 1': 1,
+  'Tier 2': 2,
+};
+
 export function checkFeatureAccess({ feature, role, tier }: AccessCheckParams): boolean {
-  // TODO: Implement access checking using FEATURE_ACCESS_RULES from '../data/mockData'.
-  // A feature is accessible when BOTH conditions are true:
-  //   1. The user's role is in the feature's allowedRoles
-  //   2. The user's tier meets or exceeds the feature's requiredTier
-  // If no rule is found for the feature, deny access.
-  // You will need a helper to compare tier levels (e.g. Tier 2 >= Tier 1).
-  // remove these void statements once you use the parameters
-  void feature;
-  void role;
-  void tier;
-  return true;
+  const rule = FEATURE_ACCESS_RULES.find((r) => r.feature === feature);
+  if (!rule) return false;
+
+  const hasRole = rule.allowedRoles.includes(role);
+  const hasTier = TIER_LEVELS[tier] >= TIER_LEVELS[rule.requiredTier];
+
+  return hasRole && hasTier;
 }

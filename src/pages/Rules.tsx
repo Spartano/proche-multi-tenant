@@ -1,5 +1,6 @@
 import { PText, PSwitch, PButton } from '@porsche-design-system/components-react';
 import { PageLayout } from '../components/PageLayout';
+import { ExerciseInfo } from '../components/ExerciseInfo';
 
 const mockRules = [
   { id: 'RULE-001', name: 'Auto-assign high priority cases', enabled: true, category: 'Assignment' },
@@ -12,9 +13,21 @@ export function Rules() {
   return (
     <PageLayout
       title="Rules"
-      description="Configure automation rules and workflows (Tier 2 feature)"
+      description="Configure automation rules and workflows"
     >
-      <div className="mb-fluid-md">
+      <ExerciseInfo title="Rules — Access Rules">
+        <p>
+          <strong>Roles:</strong> Admin, Analyst &nbsp;|&nbsp;
+          <strong>Required Tier:</strong> Tier 2 only
+        </p>
+        <p>
+          Same access pattern as Reports: requires both an elevated role (Admin or Analyst)
+          and the higher subscription tier. Viewers are excluded at the role level;
+          Tier 1 users are excluded at the tier level.
+        </p>
+      </ExerciseInfo>
+
+      <div className="mb-fluid-md mt-fluid-md">
         <PButton icon="add">Create New Rule</PButton>
       </div>
 

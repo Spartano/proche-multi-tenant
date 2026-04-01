@@ -1,6 +1,7 @@
 import { PText, PIcon } from '@porsche-design-system/components-react';
 import { PageLayout } from '../components/PageLayout';
 import { useSession } from '../hooks/useSession';
+import { ExerciseInfo } from '../components/ExerciseInfo';
 
 export function Dashboard() {
   const { session } = useSession();
@@ -10,7 +11,19 @@ export function Dashboard() {
       title="Dashboard"
       description="Overview of your key metrics and activities"
     >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-fluid-md">
+      <ExerciseInfo title="Dashboard — Access Rules">
+        <p>
+          <strong>Roles:</strong> Admin, Analyst, Viewer &nbsp;|&nbsp;
+          <strong>Required Tier:</strong> Tier 1+
+        </p>
+        <p>
+          This page is visible to all roles on any tier. It serves as the default landing page
+          and should always be accessible. The session info card below shows the active tenant,
+          user, and tier to help verify the current state.
+        </p>
+      </ExerciseInfo>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-fluid-md mt-fluid-md">
         <div className="bg-surface p-fluid-md rounded-md border-2 border-contrast-low">
           <div className="flex items-center gap-static-md mb-static-md">
             <PIcon name="chart" size="medium" className="text-primary" />

@@ -1,4 +1,6 @@
 import type { ReactNode } from 'react';
+import { Navigate } from 'react-router-dom';
+import { useAuthorization } from '../hooks/useAuthorization';
 import type { FeatureKey } from '../types';
 
 interface ProtectedRouteProps {
@@ -7,9 +9,13 @@ interface ProtectedRouteProps {
 }
 
 export function ProtectedRoute({ feature, children }: ProtectedRouteProps) {
-  // TODO: Import useAuthorization from '../hooks/useAuthorization' and
-  // Navigate from 'react-router-dom'. Check if the current user has access
-  // to the given feature. If not, redirect to /access-denied using <Navigate>.
-  void feature; // remove once implemented
+  const { hasAccess, isReady } = useAuthorization();
+
+  if (!isReady) return null;
+
+  if (!hasAccess(feature)) {
+    return <Navigate to="/access-denied" replace />;
+  }
+
   return <>{children}</>;
 }

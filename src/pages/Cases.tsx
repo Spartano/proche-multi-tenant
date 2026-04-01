@@ -1,5 +1,6 @@
 import { PText, PTag } from '@porsche-design-system/components-react';
 import { PageLayout } from '../components/PageLayout';
+import { ExerciseInfo } from '../components/ExerciseInfo';
 
 const mockCases = [
   { id: 'CASE-001', title: 'User authentication issue', status: 'Open', priority: 'High' },
@@ -14,7 +15,18 @@ export function Cases() {
       title="Cases"
       description="Manage and track all support cases"
     >
-      <div className="bg-surface rounded-md border-2 border-contrast-low overflow-hidden">
+      <ExerciseInfo title="Cases — Access Rules">
+        <p>
+          <strong>Roles:</strong> Admin, Analyst, Viewer &nbsp;|&nbsp;
+          <strong>Required Tier:</strong> Tier 1+
+        </p>
+        <p>
+          Like Dashboard, this page is accessible to everyone. It represents baseline
+          functionality available on the lowest subscription tier.
+        </p>
+      </ExerciseInfo>
+
+      <div className="bg-surface rounded-md border-2 border-contrast-low overflow-hidden mt-fluid-md">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="bg-canvas border-b-2 border-contrast-low">

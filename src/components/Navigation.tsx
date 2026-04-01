@@ -1,12 +1,13 @@
 import { NavLink } from 'react-router-dom';
-import { PIcon, type IconName } from '@porsche-design-system/components-react';
+import { PIcon, PText, type IconName } from '@porsche-design-system/components-react';
+import { useAuthorization } from '../hooks/useAuthorization';
 import { NAVIGATION_ITEMS } from '../data/mockData';
+import { ExerciseInfo } from './ExerciseInfo';
 
 export function Navigation() {
-  // TODO: Import useAuthorization from '../hooks/useAuthorization' and use
-  // its hasAccess() method to filter NAVIGATION_ITEMS so that only features
-  // the current user can access appear in the nav.
-  const accessibleItems = NAVIGATION_ITEMS;
+  const { hasAccess } = useAuthorization();
+  const accessibleItems = NAVIGATION_ITEMS.filter((item) => hasAccess(item.feature));
+  const hiddenCount = NAVIGATION_ITEMS.length - accessibleItems.length;
 
   return (
     <nav className="w-64 bg-surface border-r-2 border-contrast-low min-h-screen p-fluid-md">
@@ -29,6 +30,21 @@ export function Navigation() {
           </li>
         ))}
       </ul>
+
+      <div className="mt-fluid-md">
+        <ExerciseInfo title="Filtered Navigation">
+          <p>
+            Showing <strong>{accessibleItems.length}</strong> of {NAVIGATION_ITEMS.length} items.
+            {hiddenCount > 0 && (
+              <> <strong>{hiddenCount} hidden</strong> due to role/tier restrictions.</>
+            )}
+          </p>
+          <PText size="xx-small" className="text-[#1565c0] mt-static-xs">
+            The candidate must use <code>useAuthorization</code> to filter <code>NAVIGATION_ITEMS</code> so
+            that inaccessible features never appear.
+          </PText>
+        </ExerciseInfo>
+      </div>
     </nav>
   );
 }

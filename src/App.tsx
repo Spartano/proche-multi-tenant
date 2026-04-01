@@ -3,8 +3,7 @@ import { SessionProvider } from './context/SessionContext';
 import { Header } from './components/Header';
 import { SessionSelector } from './components/SessionSelector';
 import { Navigation } from './components/Navigation';
-// TODO: Import ProtectedRoute and wrap each route that needs guarding
-// import { ProtectedRoute } from './components/ProtectedRoute';
+import { ProtectedRoute } from './components/ProtectedRoute';
 import { Dashboard } from './pages/Dashboard';
 import { Cases } from './pages/Cases';
 import { Reports } from './pages/Reports';
@@ -28,17 +27,24 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
-                {/* TODO: Wrap each route below with <ProtectedRoute feature="...">
-                    so that unauthorized users are redirected to /access-denied.
-                    The feature keys are: dashboard, cases, reports, rules,
-                    admin-settings, audit-logs */}
-
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/cases" element={<Cases />} />
-                <Route path="/reports" element={<Reports />} />
-                <Route path="/rules" element={<Rules />} />
-                <Route path="/admin" element={<AdminSettings />} />
-                <Route path="/audit" element={<AuditLogs />} />
+                <Route path="/dashboard" element={
+                  <ProtectedRoute feature="dashboard"><Dashboard /></ProtectedRoute>
+                } />
+                <Route path="/cases" element={
+                  <ProtectedRoute feature="cases"><Cases /></ProtectedRoute>
+                } />
+                <Route path="/reports" element={
+                  <ProtectedRoute feature="reports"><Reports /></ProtectedRoute>
+                } />
+                <Route path="/rules" element={
+                  <ProtectedRoute feature="rules"><Rules /></ProtectedRoute>
+                } />
+                <Route path="/admin" element={
+                  <ProtectedRoute feature="admin-settings"><AdminSettings /></ProtectedRoute>
+                } />
+                <Route path="/audit" element={
+                  <ProtectedRoute feature="audit-logs"><AuditLogs /></ProtectedRoute>
+                } />
 
                 <Route path="/access-denied" element={<AccessDenied />} />
               </Routes>

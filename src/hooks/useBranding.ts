@@ -1,11 +1,15 @@
+import { useEffect } from 'react';
 import { useSession } from './useSession';
+import { updateFavicon, updateDocumentTitle } from '../utils/branding';
 
 export function useBranding() {
   const { session } = useSession();
 
-  // TODO: Import useEffect from 'react' and import updateFavicon / updateDocumentTitle
-  // from '../utils/branding'. Then add a useEffect that calls both utilities
-  // whenever the session (specifically the tenant) changes.
+  useEffect(() => {
+    if (!session) return;
+    updateFavicon(session.tenant.faviconUrl);
+    updateDocumentTitle(session.tenant.productName);
+  }, [session]);
 
   return {
     tenant: session?.tenant || null,

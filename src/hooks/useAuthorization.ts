@@ -1,19 +1,22 @@
 import { useSession } from './useSession';
+import { checkFeatureAccess } from '../utils/accessControl';
 import type { FeatureKey } from '../types';
 
 export function useAuthorization() {
   const { session } = useSession();
 
   const hasAccess = (feature: FeatureKey): boolean => {
-    // TODO: Import and use checkFeatureAccess from '../utils/accessControl'
-    // to determine whether the current user's role and subscription tier
-    // grant access to the given feature. Return false if there is no session.
-    void feature; // remove once implemented
-    return true;
+    if (!session) return false;
+    return checkFeatureAccess({
+      feature,
+      role: session.user.role,
+      tier: session.tier,
+    });
   };
 
   return {
     hasAccess,
+    isReady: session !== null,
     role: session?.user.role || null,
     tier: session?.tier || null,
   };
